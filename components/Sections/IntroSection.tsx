@@ -1,6 +1,6 @@
 import { DevStack, MotionDevicon } from "@components/Devicon";
 import { Section, SectionTheme } from "@components/Section";
-import { CustomText, FontFamily, MotionCustomText } from "@components/Text";
+import { FontFamily, MotionCustomText } from "@components/Text";
 import { useEffect, useState } from "react";
 
 export default function IntroSection() {
@@ -22,8 +22,11 @@ export default function IntroSection() {
     transition: { duration: 1, ease: "easeOut" },
   };
 
+  const devIconSize = 100;
+
   return (
     <Section theme={SectionTheme.Dark}>
+      <div style={{ height: 100 }} />
       {fontLoaded && (
         <>
           <MotionCustomText
@@ -45,19 +48,58 @@ export default function IntroSection() {
             Full-Stack Developer
           </MotionCustomText>
 
-          <MotionDevicon
-            devStack={DevStack.Unity}
-            size={24}
-            {...deviconAnimation}
-            transition={{ ...deviconAnimation.transition, delay: 2 }}
-          />
+          <div style={{ height: 100 }} />
 
-          <MotionDevicon
-            devStack={DevStack.Typescript}
-            size={24}
-            {...deviconAnimation}
-            transition={{ ...deviconAnimation.transition, delay: 2.4 }}
-          />
+          <div style={{ display: "flex", flexDirection: "row", gap: "30px" }}>
+            <MotionDevicon
+              devStack={DevStack.Unity}
+              size={devIconSize}
+              {...deviconAnimation}
+              transition={{ ...deviconAnimation.transition, delay: 2 }}
+            />
+
+            <MotionDevicon
+              devStack={DevStack.Typescript}
+              size={devIconSize}
+              {...deviconAnimation}
+              transition={{ ...deviconAnimation.transition, delay: 2.4 }}
+            />
+
+            <MotionDevicon
+              devStack={DevStack.React}
+              size={devIconSize}
+              {...deviconAnimation}
+              transition={{ ...deviconAnimation.transition, delay: 2.8 }}
+            />
+
+            <MotionDevicon
+              devStack={DevStack.Firebase}
+              size={devIconSize}
+              {...deviconAnimation}
+              transition={{ ...deviconAnimation.transition, delay: 3.2 }}
+            />
+
+            <MotionDevicon
+              devStack={DevStack.Remix}
+              size={devIconSize}
+              {...deviconAnimation}
+              transition={{ ...deviconAnimation.transition, delay: 3.6 }}
+            />
+
+            <MotionDevicon
+              devStack={DevStack.Flutter}
+              size={devIconSize}
+              {...deviconAnimation}
+              transition={{ ...deviconAnimation.transition, delay: 4 }}
+            />
+
+            <MotionDevicon
+              devStack={DevStack.Nodejs}
+              size={devIconSize}
+              {...deviconAnimation}
+              transition={{ ...deviconAnimation.transition, delay: 4.4 }}
+            />
+          </div>
         </>
       )}
     </Section>

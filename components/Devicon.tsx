@@ -5,6 +5,11 @@ import { forwardRef } from "react";
 export enum DevStack {
   Unity = "Unity",
   Typescript = "Typescript",
+  React = "React",
+  Remix = "Remix",
+  Flutter = "Flutter",
+  Firebase = "Firebase",
+  Nodejs = "Nodejs",
 }
 
 export const Devicon = forwardRef<
@@ -24,6 +29,26 @@ export const Devicon = forwardRef<
     case DevStack.Typescript:
       deviconAddress =
         "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg";
+      break;
+    case DevStack.React:
+      deviconAddress =
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg";
+      break;
+    case DevStack.Remix:
+      deviconAddress =
+        "devicon/remix-letter-glowing.png";
+      break;
+    case DevStack.Flutter:
+      deviconAddress =
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg";
+      break;
+    case DevStack.Firebase:
+      deviconAddress =
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg";
+      break;
+    case DevStack.Nodejs:
+      deviconAddress =
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg";
       break;
   }
 
