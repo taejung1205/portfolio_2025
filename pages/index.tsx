@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Next.js Starter!</title>
+        <title>ABOUT 김태정</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
