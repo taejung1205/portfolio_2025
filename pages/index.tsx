@@ -1,18 +1,34 @@
 import Head from "next/head";
 import Header from "@components/Header";
-import Footer from "@components/Footer";
-import { Section, SectionTheme } from "@components/Section";
-import {
-  TimelineConnector,
-  TimelineContent,
-  TimelineDescription,
-  TimelineItem,
-  TimelineRoot,
-  TimelineTitle,
-} from "@chakra-ui/react";
-import { Text } from "@chakra-ui/react";
 import IntroSection from "@components/Sections/IntroSection";
+import AboutSection from "@components/Sections/AboutSection";
+import CareerSection from "@components/Sections/CareerSection";
+import ProjectsSection from "@components/Sections/ProjectSection";
+import OutroSection from "@components/Sections/OutroSection";
+import { useRef } from "react";
+
 export default function Home() {
+  const introSectionRef = useRef<HTMLDivElement>(null);
+  const aboutSectionRef = useRef<HTMLDivElement>(null);
+  const careerSectionRef = useRef<HTMLDivElement>(null);
+  const projectsSectionRef = useRef<HTMLDivElement>(null);
+  const outroSectionRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSection = (sectionId: string) => {
+    const sectionMap: { [key: string]: React.RefObject<HTMLDivElement> } = {
+      intro: introSectionRef,
+      about: aboutSectionRef,
+      career: careerSectionRef,
+      projects: projectsSectionRef,
+      outro: outroSectionRef,
+    };
+
+    const sectionRef = sectionMap[sectionId];
+    if (sectionRef?.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -20,41 +36,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <main> */}
-      <IntroSection />
-      <Section theme={SectionTheme.Light}>
-        <h1>Hello WORLD 2</h1>
-        <TimelineRoot maxW="400px">
-          <TimelineItem>
-            <TimelineConnector></TimelineConnector>
-            <TimelineContent>
-              <TimelineTitle>Product Shipped</TimelineTitle>
-              <TimelineDescription>13th May 2021</TimelineDescription>
-              <Text textStyle="sm">
-                We shipped your product via <strong>FedEx</strong> and it should
-                arrive within 3-5 business days.
-              </Text>
-            </TimelineContent>
-          </TimelineItem>
+      <Header scrollToSection={scrollToSection} />
 
-          <TimelineItem>
-            <TimelineConnector></TimelineConnector>
-            <TimelineContent>
-              <TimelineTitle textStyle="sm">Order Confirmed</TimelineTitle>
-              <TimelineDescription>18th May 2021</TimelineDescription>
-            </TimelineContent>
-          </TimelineItem>
+      {/* 각 섹션에 ref 추가 */}
+      <div ref={introSectionRef} data-section="intro" />
+      <IntroSection scrollToSection={scrollToSection} />
 
-          <TimelineItem>
-            <TimelineConnector></TimelineConnector>
-            <TimelineContent>
-              <TimelineTitle textStyle="sm">Order Delivered</TimelineTitle>
-              <TimelineDescription>20th May 2021, 10:30am</TimelineDescription>
-            </TimelineContent>
-          </TimelineItem>
-        </TimelineRoot>
-      </Section>
-      {/* </main> */}
+      <div ref={aboutSectionRef} data-section="about" />
+      <AboutSection />
+
+      <div ref={careerSectionRef} data-section="career" />
+      <CareerSection />
+
+      <div ref={projectsSectionRef} data-section="projects" />
+      <ProjectsSection />
+
+      <div ref={outroSectionRef} data-section="outro" />
+      <OutroSection />
     </div>
   );
 }
