@@ -10,8 +10,8 @@ export default function IntroSection() {
   }, []);
 
   return (
-    fontLoaded && (
-      <Section theme={SectionTheme.Dark}>
+    <Section theme={SectionTheme.Dark}>
+      {fontLoaded && (
         <MotionCustomText
           fontFamily={FontFamily.Warhaven}
           fontSize={80}
@@ -22,6 +22,8 @@ export default function IntroSection() {
         >
           김태정
         </MotionCustomText>
+      )}
+      {fontLoaded && (
         <MotionCustomText
           fontFamily={FontFamily.Warhaven}
           fontSize={36}
@@ -32,7 +34,7 @@ export default function IntroSection() {
         >
           Full-Stack Developer
         </MotionCustomText>
-      </Section>
-    )
+      )}
+    </Section>
   );
 }
