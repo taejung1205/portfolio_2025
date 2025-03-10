@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import localFont from "next/font/local";
+import { forwardRef } from "react";
 
 export enum FontFamily {
   Warhaven = "Warhaven",
@@ -19,18 +21,31 @@ const WarhavenFont = localFont({
   ],
 });
 
-export function CustomText({
-  fontFamily,
-  children,
-}: {
-  fontFamily: FontFamily;
-  children: React.ReactNode;
-}) {
-  var fontClassName = "";
+export const CustomText = forwardRef<
+  HTMLParagraphElement, // `p` 태그에 적용할 것이므로 HTMLParagraphElement 사용
+  {
+    fontFamily: FontFamily;
+    fontSize: number;
+    fontWeight?: number;
+    children: React.ReactNode;
+  }
+>(({ fontFamily, fontSize, fontWeight = 400, children }, ref) => {
+  let fontClassName = "";
   switch (fontFamily) {
     case FontFamily.Warhaven:
       fontClassName = WarhavenFont.className;
       break;
   }
-  return <p className={fontClassName}>{children}</p>;
-}
+
+  return (
+    <p
+      ref={ref}
+      className={fontClassName}
+      style={{ fontSize: fontSize, fontWeight: fontWeight }}
+    >
+      {children}
+    </p>
+  );
+});
+
+export const MotionCustomText = motion.create(CustomText);
