@@ -1,3 +1,4 @@
+import { DevStack, MotionDevicon } from "@components/Devicon";
 import { Section, SectionTheme } from "@components/Section";
 import { CustomText, FontFamily, MotionCustomText } from "@components/Text";
 import { useEffect, useState } from "react";
@@ -34,6 +35,24 @@ export default function IntroSection() {
         >
           Full-Stack Developer
         </MotionCustomText>
+      )}
+      {fontLoaded && (
+        <MotionDevicon
+          devStack={DevStack.Unity}
+          size={24}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 2 }}
+        />
+      )}
+      {fontLoaded && (
+        <MotionDevicon
+          devStack={DevStack.Typescript}
+          size={24}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 2.4 }}
+        />
       )}
     </Section>
   );
