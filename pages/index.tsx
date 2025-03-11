@@ -5,9 +5,9 @@ import AboutSection from "@components/Sections/AboutSection";
 import CareerSection from "@components/Sections/CareerSection";
 import ProjectsSection from "@components/Sections/ProjectSection";
 import OutroSection from "@components/Sections/OutroSection";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProjectModal from "@components/Modals/ProjectModal";
-import { Project } from "@components/Project";
+import { getProjectByTitle, Project } from "@components/Project";
 
 export default function Home() {
   const introSectionRef = useRef<HTMLDivElement>(null);
@@ -34,6 +34,7 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project>({
     title: "",
+    subtitle: "",
     about: "",
     period: "",
     devStacks: [],
@@ -46,6 +47,13 @@ export default function Home() {
     setIsOpen(true);
   }
 
+  useEffect(() => {
+    const project = getProjectByTitle("EUICC Profile Tester");
+    if (project) {
+      setSelectedProject(project);
+    }
+  }, []);
+
   return (
     <div>
       <Head>
@@ -55,7 +63,11 @@ export default function Home() {
 
       <Header scrollToSection={scrollToSection} />
 
-      <ProjectModal isOpen={isOpen} selectedProject={selectedProject} />
+      <ProjectModal
+        isOpen={isOpen}
+        onOpenChange={(open: boolean) => setIsOpen(open)}
+        selectedProject={selectedProject}
+      />
 
       {/* 각 섹션에 ref 추가 */}
       <div ref={introSectionRef} data-section="intro" />
@@ -65,7 +77,7 @@ export default function Home() {
       <AboutSection />
 
       <div ref={careerSectionRef} data-section="career" />
-      <CareerSection />
+      <CareerSection onProjectClick={onProjectClick} />
 
       <div ref={projectsSectionRef} data-section="projects" />
       <ProjectsSection />

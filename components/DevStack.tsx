@@ -6,4 +6,8 @@ export enum DevStack {
   Flutter = "Flutter",
   Firebase = "Firebase",
   Nodejs = "Nodejs",
+  Android = "Android",
+  Javascript = "Javascript",
+  Java = "Java",
+  Playwright = "Playwright",
 }
