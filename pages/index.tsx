@@ -5,7 +5,9 @@ import AboutSection from "@components/Sections/AboutSection";
 import CareerSection from "@components/Sections/CareerSection";
 import ProjectsSection from "@components/Sections/ProjectSection";
 import OutroSection from "@components/Sections/OutroSection";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import ProjectModal from "@components/Modals/ProjectModal";
+import { Project } from "@components/Project";
 
 export default function Home() {
   const introSectionRef = useRef<HTMLDivElement>(null);
@@ -29,6 +31,21 @@ export default function Home() {
     }
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project>({
+    title: "",
+    about: "",
+    period: "",
+    devStacks: [],
+    images: [],
+    implementation: "",
+  });
+
+  function onProjectClick(project: Project) {
+    setSelectedProject(project);
+    setIsOpen(true);
+  }
+
   return (
     <div>
       <Head>
@@ -37,6 +54,8 @@ export default function Home() {
       </Head>
 
       <Header scrollToSection={scrollToSection} />
+
+      <ProjectModal isOpen={isOpen} selectedProject={selectedProject} />
 
       {/* 각 섹션에 ref 추가 */}
       <div ref={introSectionRef} data-section="intro" />

@@ -1,4 +1,5 @@
-import { DevStack, MotionDevicon } from "@components/Devicon";
+import { MotionDevicon } from "@components/Devicon";
+import { DevStack } from "@components/DevStack";
 import { Section, SectionTheme } from "@components/Section";
 import { FontFamily, MotionCustomText } from "@components/Text";
 import { useEffect, useState } from "react";

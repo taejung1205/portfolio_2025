@@ -1,16 +1,8 @@
 import { motion } from "framer-motion";
 import localFont from "next/font/local";
 import { forwardRef } from "react";
+import { DevStack } from "./DevStack";
 
-export enum DevStack {
-  Unity = "Unity",
-  Typescript = "Typescript",
-  React = "React",
-  Remix = "Remix",
-  Flutter = "Flutter",
-  Firebase = "Firebase",
-  Nodejs = "Nodejs",
-}
 
 export const Devicon = forwardRef<
   HTMLImageElement, // `i` 태그를 사용할 것이므로 HTMLElement
