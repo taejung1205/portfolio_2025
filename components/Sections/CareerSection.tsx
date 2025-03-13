@@ -119,13 +119,13 @@ export default function CareerSection({ onProjectClick }) {
     return (
       <div style={{ gap: "3px", textAlign: align }}>
         <CustomText
-          fontFamily={FontFamily.NanumGothic}
+          fontFamily={FontFamily.Warhaven}
           fontWeight={700}
           fontSize={16}
         >
           {title}
         </CustomText>
-        <CustomText fontFamily={FontFamily.NanumGothic} fontSize={16}>
+        <CustomText fontFamily={FontFamily.Warhaven} fontSize={16}>
           {period}
         </CustomText>
         <div style={{ height: "8px" }} />
@@ -164,7 +164,7 @@ export default function CareerSection({ onProjectClick }) {
               />
             </svg>
             <CustomText
-              fontFamily={FontFamily.NanumGothic}
+              fontFamily={FontFamily.Warhaven}
               fontSize={16}
               fontWeight={700}
             >

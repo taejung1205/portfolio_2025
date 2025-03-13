@@ -74,6 +74,10 @@ export default function ProjectsSection({ onProjectClick, selectedStacks, setSel
                   value={stack}
                   checked={selectedStacks.includes(stack)}
                   onChange={() => handleStackChange(stack)}
+                  style={{
+                    width: "20px",
+                    height: "20px"
+                  }}
                 />
                 <div style={{ width: "5px" }} />
                 <CustomText fontFamily={FontFamily.Warhaven} fontSize={16}>

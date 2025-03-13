@@ -126,7 +126,7 @@ export default function ProjectModal({
                     </CustomText>
                     <div style={{ height: "10px" }} />
                     <CustomText
-                      fontFamily={FontFamily.NanumGothic}
+                      fontFamily={FontFamily.Warhaven}
                       fontSize={16}
                       fontWeight={400}
                     >
@@ -140,7 +140,7 @@ export default function ProjectModal({
                     </CustomText>
                     <div style={{ height: "10px" }} />
                     <CustomText
-                      fontFamily={FontFamily.NanumGothic}
+                      fontFamily={FontFamily.Warhaven}
                       fontSize={16}
                       fontWeight={400}
                     >
@@ -153,7 +153,7 @@ export default function ProjectModal({
                     </CustomText>
                     <div style={{ height: "10px" }} />
                     <CustomText
-                      fontFamily={FontFamily.NanumGothic}
+                      fontFamily={FontFamily.Warhaven}
                       fontSize={16}
                       fontWeight={400}
                     >
@@ -165,7 +165,7 @@ export default function ProjectModal({
                     </CustomText>
                     <div style={{ height: "10px" }} />
                     <CustomText
-                      fontFamily={FontFamily.NanumGothic}
+                      fontFamily={FontFamily.Warhaven}
                       fontSize={16}
                       fontWeight={400}
                       whiteSpace="pre-line"

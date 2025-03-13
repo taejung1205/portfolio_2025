@@ -67,6 +67,11 @@ export default function Home() {
       <Head>
         <title>ABOUT 김태정</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
       </Head>
 
       <Header scrollToSection={scrollToSection} />

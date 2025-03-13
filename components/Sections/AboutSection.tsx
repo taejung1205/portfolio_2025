@@ -81,9 +81,9 @@ export default function AboutSection() {
               </svg>
 
               <CustomText
-                fontFamily={FontFamily.NanumGothic}
+                fontFamily={FontFamily.Warhaven}
                 fontSize={20}
-                fontWeight={700}
+                fontWeight={400}
               >
                 경기도 의왕시
               </CustomText>
@@ -108,7 +108,7 @@ export default function AboutSection() {
               </svg>
 
               <CustomText
-                fontFamily={FontFamily.NanumGothic}
+                fontFamily={FontFamily.Warhaven}
                 fontSize={20}
                 fontWeight={400}
               >
@@ -129,7 +129,7 @@ export default function AboutSection() {
               />
 
               <CustomText
-                fontFamily={FontFamily.NanumGothic}
+                fontFamily={FontFamily.Warhaven}
                 fontSize={20}
                 fontWeight={400}
               >
@@ -149,7 +149,7 @@ export default function AboutSection() {
                 width={30}
               />
               <CustomText
-                fontFamily={FontFamily.NanumGothic}
+                fontFamily={FontFamily.Warhaven}
                 fontSize={16}
                 fontWeight={400}
               >
@@ -182,9 +182,9 @@ export default function AboutSection() {
               <div style={{ height: "20px" }} />
 
               <CustomText
-                fontFamily={FontFamily.NanumGothic}
+                fontFamily={FontFamily.Warhaven}
                 fontSize={18}
-                fontWeight={700}
+                fontWeight={400}
               >
                 저는 초등학생 시절부터 게임 개발자가 되는 것을 꿈꿔왔습니다.
                 <br />
@@ -211,13 +211,13 @@ export default function AboutSection() {
               <CustomText
                 fontFamily={FontFamily.Warhaven}
                 fontSize={40}
-                fontWeight={700}
+                fontWeight={400}
               >
                 EDUCATION
               </CustomText>
               <div style={{ height: "20px" }} />
               <CustomText
-                fontFamily={FontFamily.NanumGothic}
+                fontFamily={FontFamily.Warhaven}
                 fontSize={18}
                 fontWeight={700}
               >
