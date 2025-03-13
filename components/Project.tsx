@@ -85,7 +85,7 @@ export const ProjectsList: Project[] = [
               Facewallet API의 주요 기능을 테스트하기 위한 데모 사이트인 샘플댑, 앱 내 이식 없이 페이스월렛의 단독 사용을 위한 스탠드얼론,
               페이스월렛을 사용하는 앱을 고객사가 관리할 수 있게 해주는 대시보드의 테스트 작업을 진행했습니다.`,
     period: "2023.08. ~ 2024.02.",
-    devStacks: [DevStack.React, DevStack.Playwright],
+    devStacks: [DevStack.React, DevStack.Playwright, DevStack.Typescript],
     images: [
       "/projects/facewallet/facewallet1.png",
       "/projects/facewallet/facewallet2.png",
@@ -128,6 +128,7 @@ export const ProjectsList: Project[] = [
       DevStack.Remix,
       DevStack.Firebase,
       DevStack.Netlify,
+      DevStack.Typescript
     ],
     images: [
       "/projects/newbid/newbid1.jpg",
@@ -155,6 +156,7 @@ export const ProjectsList: Project[] = [
       DevStack.Remix,
       DevStack.Firebase,
       DevStack.Netlify,
+      DevStack.Typescript
     ],
     images: [
       "/projects/lofapartner/lofapartner1.png",
@@ -173,7 +175,7 @@ export const ProjectsList: Project[] = [
     about: `'써치라이트'는 신진 작가를 소개하기 위해 로파서울에서 기획한 전시회이며, 해당 전시회에 출품한 작가를 소개하기 위한 웹사이트를 개발하였습니다. 기존에 본인이 진행한 웹 프로젝트와 다르게 Next.js 프레임워크와 Vercel 호스팅을 활용하였습니다. 총 35명의 작가들과 200점 이상의 예술품이 사이트에 등록되어 있습니다. 
             `,
     period: "2023.10.",
-    devStacks: [DevStack.React, DevStack.Nextjs, DevStack.Vercel],
+    devStacks: [DevStack.React, DevStack.Nextjs, DevStack.Vercel, DevStack.Typescript],
     images: [
       "/projects/searchlight/searchlight1.png",
       "/projects/searchlight/searchlight2.png",
