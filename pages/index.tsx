@@ -8,6 +8,7 @@ import OutroSection from "@components/Sections/OutroSection";
 import { useEffect, useRef, useState } from "react";
 import ProjectModal from "@components/Modals/ProjectModal";
 import { getProjectByTitle, Project } from "@components/Project";
+import { DevStack } from "@components/DevStack";
 
 export default function Home() {
   const introSectionRef = useRef<HTMLDivElement>(null);
@@ -41,10 +42,17 @@ export default function Home() {
     images: [],
     implementation: "",
   });
+  const [selectedStacks, setSelectedStacks] = useState<DevStack[]>([]);
 
   function onProjectClick(project: Project) {
     setSelectedProject(project);
     setIsOpen(true);
+  }
+
+  // AboutSection에서 특정 기술 클릭 시 실행
+  function onDeviconClick(stack: DevStack) {
+    setSelectedStacks([stack]); // 선택한 기술만 필터
+    scrollToSection("projects");
   }
 
   useEffect(() => {
@@ -71,7 +79,7 @@ export default function Home() {
 
       {/* 각 섹션에 ref 추가 */}
       <div ref={introSectionRef} data-section="intro" />
-      <IntroSection scrollToSection={scrollToSection} />
+      <IntroSection onDeviconClick={onDeviconClick} />
 
       <div ref={aboutSectionRef} data-section="about" />
       <AboutSection />
@@ -80,7 +88,11 @@ export default function Home() {
       <CareerSection onProjectClick={onProjectClick} />
 
       <div ref={projectsSectionRef} data-section="projects" />
-      <ProjectsSection onProjectClick={onProjectClick} />
+      <ProjectsSection
+        onProjectClick={onProjectClick}
+        selectedStacks={selectedStacks}
+        setSelectedStacks={setSelectedStacks}
+      />
 
       <div ref={outroSectionRef} data-section="outro" />
       <OutroSection />

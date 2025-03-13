@@ -14,6 +14,12 @@ export function getProjectByTitle(title: string): Project | undefined {
   return ProjectsList.find((project) => project.title === title);
 }
 
+export function getProjectsByDevStack(devStacks: DevStack[]): Project[] {
+  return ProjectsList.filter((project) =>
+    devStacks.some((stack) => project.devStacks.includes(stack))
+  );
+}
+
 export const ProjectsList: Project[] = [
   {
     title: "EUICC Profile Tester",

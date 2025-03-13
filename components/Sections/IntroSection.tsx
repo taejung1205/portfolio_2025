@@ -4,7 +4,7 @@ import { Section, SectionTheme } from "@components/Section";
 import { FontFamily, MotionCustomText } from "@components/Text";
 import { useEffect, useState } from "react";
 
-export default function IntroSection({ scrollToSection }) {
+export default function IntroSection({ onDeviconClick }) {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -24,13 +24,6 @@ export default function IntroSection({ scrollToSection }) {
   };
 
   const devIconSize = 100;
-
-  const handleDeviconClick = (stack: string) => {
-    // 클릭 시 aboutSection으로 스크롤
-    scrollToSection("projects");
-    //TODO: Projects에서 검색
-    console.log(stack);
-  };
 
   return (
     <Section theme={SectionTheme.Dark}>
@@ -61,7 +54,7 @@ export default function IntroSection({ scrollToSection }) {
           <div style={{ display: "flex", flexDirection: "row", gap: "30px" }}>
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => handleDeviconClick(DevStack.Unity)}
+              onClick={() => onDeviconClick(DevStack.Unity)}
             >
               <MotionDevicon
                 devStack={DevStack.Unity}
@@ -73,7 +66,7 @@ export default function IntroSection({ scrollToSection }) {
 
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => handleDeviconClick(DevStack.Typescript)}
+              onClick={() => onDeviconClick(DevStack.Typescript)}
             >
               <MotionDevicon
                 devStack={DevStack.Typescript}
@@ -85,7 +78,7 @@ export default function IntroSection({ scrollToSection }) {
 
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => handleDeviconClick(DevStack.React)}
+              onClick={() => onDeviconClick(DevStack.React)}
             >
               <MotionDevicon
                 devStack={DevStack.React}
@@ -97,7 +90,7 @@ export default function IntroSection({ scrollToSection }) {
 
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => handleDeviconClick(DevStack.Firebase)}
+              onClick={() => onDeviconClick(DevStack.Firebase)}
             >
               <MotionDevicon
                 devStack={DevStack.Firebase}
@@ -109,7 +102,7 @@ export default function IntroSection({ scrollToSection }) {
 
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => handleDeviconClick(DevStack.Remix)}
+              onClick={() => onDeviconClick(DevStack.Remix)}
             >
               <MotionDevicon
                 devStack={DevStack.Remix}
@@ -121,7 +114,7 @@ export default function IntroSection({ scrollToSection }) {
 
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => handleDeviconClick(DevStack.Flutter)}
+              onClick={() => onDeviconClick(DevStack.Flutter)}
             >
               <MotionDevicon
                 devStack={DevStack.Flutter}
@@ -133,7 +126,7 @@ export default function IntroSection({ scrollToSection }) {
 
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => handleDeviconClick(DevStack.Nodejs)}
+              onClick={() => onDeviconClick(DevStack.Nodejs)}
             >
               <MotionDevicon
                 devStack={DevStack.Nodejs}
