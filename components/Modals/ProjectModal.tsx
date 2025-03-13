@@ -160,18 +160,26 @@ export default function ProjectModal({
                       {selectedProject.devStacks.join(", ")}
                     </CustomText>
                     <div style={{ height: "40px" }} />
-                    <CustomText fontFamily={FontFamily.Warhaven} fontSize={24}>
-                      주요 구현
-                    </CustomText>
-                    <div style={{ height: "10px" }} />
-                    <CustomText
-                      fontFamily={FontFamily.Warhaven}
-                      fontSize={16}
-                      fontWeight={400}
-                      whiteSpace="pre-line"
-                    >
-                      {selectedProject.implementation}
-                    </CustomText>
+                    {selectedProject.implementation.length > 0 && (
+                      <>
+                        {" "}
+                        <CustomText
+                          fontFamily={FontFamily.Warhaven}
+                          fontSize={24}
+                        >
+                          주요 구현
+                        </CustomText>
+                        <div style={{ height: "10px" }} />
+                        <CustomText
+                          fontFamily={FontFamily.Warhaven}
+                          fontSize={16}
+                          fontWeight={400}
+                          whiteSpace="pre-line"
+                        >
+                          {selectedProject.implementation}
+                        </CustomText>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>

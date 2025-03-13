@@ -164,7 +164,8 @@ export const ProjectsList: Project[] = [
     - 고객사 전용 페이지와 다른 기능 및 UI를 지닌 관리자 페이지 
     - 업로드한 엑셀 파일을 읽어 정산내역 또는 운송장 기록을 생성하고 관리할 수 있는 시스템
     - Firestore를 통해 관리되는 고객사 정보와 물류 정보
-    - 정산내역 공유 등 업무 발생시 사용자에게 문자 메세지를 주기 위한 알림톡 API 적용`,
+    - 정산내역 공유 등 업무 발생시 사용자에게 문자 메세지를 주기 위한 알림톡 API 적용
+    - Resend API를 활용하여 월간 정산 진행 후 고객사에게 일괄적으로 이메일 알림을 발송하는 기능 구현`,
   },
   {
     title: "써치라이트",
@@ -178,6 +179,38 @@ export const ProjectsList: Project[] = [
       "/projects/searchlight/searchlight2.png",
     ],
     implementation: `- 사이트 내 애니메이션 효과 적용
-    - 반응형 디자인을 통해 모바일/PC 양 플랫폼에서 적절한 화면 구성을 보여줌`,
+    - 화면 크기에 따른 반응형 웹페이지 구현`,
+  },
+  {
+    title: "FlashBack: Pause Ahead",
+    subtitle: "언리얼 엔진을 활용한 게임 습작",
+    about: `2022-2 정보문화학 강의 '산학연구실습'의 과제물로 제작한 견습 모작 게임입니다. Askiisoft가 2013년에 개발한 플랫포머 플래시게임 'Pause Ahead'의 게임 메카닉을 재현한 플래시게임으로, 일시정지 도중 관성이 유지되는 기믹을 활용해 물리적으로 클리어가 불가능한 레벨을 클리어하는 것이 이 게임의 목표입니다.`,
+    period: "2022.10.",
+    devStacks: [DevStack.Unreal],
+    images: ["/projects/pauseahead/pauseahead.png"],
+    implementation: `- 기본적인 횡스크롤 플랫포머 게임 시스템 구현 및 5개의 레벨 디자인
+    - 'Pause Ahead' 원작 특유의, 일시정지 상태에서 캐릭터 이동 관성이 유지되는 기믹 구현
+    총 플레이 타임: 10분 이내`,
+  },
+  {
+    title: "세 명의 총잡이",
+    subtitle: "유니티 엔진을 활용한 기능성 게임 습작",
+    about: `2022-2 정보문화학 강의 '시리어스 게임'의 과제물로 제작한 시뮬레이션 게임입니다. 유명한 게임 이론인 '세 명의 총잡이'의 등장인물이 되어, 주어진 규칙에서 생존 확률을 가장 높이는 선택지를 고르는 것이 목표입니다. 직접 자신의 명중률을 조정해서 시험해볼 수 있는 커스텀 모드를 지원합니다.`,
+    period: "2022.10.",
+    devStacks: [DevStack.Unity],
+    images: ["/projects/truel/truel.png"],
+    implementation: `- 마우스 조작을 바탕으로 플레이할 수 있는 간단한 게임 구현
+    총 플레이 타임: 5분 이내`,
+  },
+  {
+    title: "Remote Run",
+    subtitle: "아두이노를 활용한 물리적 인터페이스 구현",
+    about: `2022-2 정보문화학 강의 '인터랙티브 미디어'의 과제물로 제작한 게임입니다. 초음파 센서를 활용해 만들어진 아두이노 장치를 컨트롤러로 사용하여, 양손과 컨트롤러 사이의 거리를 활용해 캐릭터의 좌우 이동을 조작하여 장애물을 피한 채 완주하는 게임입니다.`,
+    period: "2022.10.",
+    devStacks: [DevStack.Unity, DevStack.Arduino],
+    images: ["/projects/remote_run/remoterun.png"],
+    implementation: `- 초음파 센서를 통해 기기 양측의 감지 거리를 입력받아 게임 캐릭터를 조작할 수 있게 하는 물리적 인터페이스 구현
+    - 플레이 난이도를 고려한 3D 레벨 디자인 
+    총 플레이 타임: 5분 이내`,
   },
 ];
