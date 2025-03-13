@@ -4,7 +4,7 @@ import { Section, SectionTheme } from "@components/Section";
 import { FontFamily, MotionCustomText } from "@components/Text";
 import { useEffect, useState } from "react";
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ onProjectClick }) {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -53,7 +53,11 @@ export default function ProjectsSection() {
             }}
           >
             {ProjectsList.map((project, index) => (
-              <ProjectBox project={project} key={index} />
+              <ProjectBox
+                project={project}
+                key={index}
+                onClick={() => onProjectClick(project)}
+              />
             ))}
           </div>
         </div>

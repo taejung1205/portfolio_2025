@@ -80,7 +80,7 @@ export default function Home() {
       <CareerSection onProjectClick={onProjectClick} />
 
       <div ref={projectsSectionRef} data-section="projects" />
-      <ProjectsSection />
+      <ProjectsSection onProjectClick={onProjectClick} />
 
       <div ref={outroSectionRef} data-section="outro" />
       <OutroSection />

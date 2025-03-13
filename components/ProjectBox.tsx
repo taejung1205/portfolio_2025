@@ -1,7 +1,13 @@
 import { Project } from "./Project";
 import { CustomText, FontFamily } from "./Text";
 
-export default function ProjectBox({ project }: { project: Project }) {
+export default function ProjectBox({
+  project,
+  onClick,
+}: {
+  project: Project;
+  onClick: () => void;
+}) {
   return (
     <div
       style={{
@@ -10,7 +16,9 @@ export default function ProjectBox({ project }: { project: Project }) {
         borderRadius: "10px",
         backgroundColor: "#000f32",
         color: "white",
+        cursor: "pointer",
       }}
+      onClick={onClick}
     >
       <img
         src={project.images[0]}

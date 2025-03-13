@@ -37,9 +37,15 @@ export default function ProjectModal({
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          <Dialog.Content style={{ lineHeight: 1.5 }}>
+          <Dialog.Content
+            style={{
+              lineHeight: 1.5,
+              backgroundColor: "#000F32",
+              color: "white",
+            }}
+          >
             <Dialog.CloseTrigger asChild>
-              <CloseButton size="sm" />
+              <CloseButton size="sm" color={"grey"} />
             </Dialog.CloseTrigger>
             {
               <div
@@ -50,7 +56,7 @@ export default function ProjectModal({
                   height: "100%",
                 }}
               >
-                <div style={{ color: "#000F32" }}>
+                <div style={{ color: "white" }}>
                   <CustomText
                     fontFamily={FontFamily.Warhaven}
                     fontSize={60}
@@ -101,11 +107,12 @@ export default function ProjectModal({
                           setPage(e.page);
                           console.log(e.page);
                         }}
+                        variant="subtle"
                       >
                         <HStack>
-                          <PaginationPrevTrigger />
-                          <PaginationItems />
-                          <PaginationNextTrigger />
+                          <PaginationPrevTrigger color={"grey"} />
+                          <PaginationItems color={"grey"} />
+                          <PaginationNextTrigger color={"grey"} />
                         </HStack>
                       </PaginationRoot>
                     </div>
