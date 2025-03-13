@@ -10,4 +10,7 @@ export enum DevStack {
   Javascript = "Javascript",
   Java = "Java",
   Playwright = "Playwright",
+  Netlify = "Netlify",
+  Nextjs = "Next.js",
+  Vercel = "Vercel",
 }

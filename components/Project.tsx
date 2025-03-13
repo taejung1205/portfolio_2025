@@ -89,4 +89,89 @@ export const ProjectsList: Project[] = [
     - Facewallet의 2단계 보안 인증에 대한 E2E 테스트 시나리오 구현
     - Facewallet 대시보드에 대한 E2E 자동화 테스트 지원`,
   },
+  {
+    title: "MatheTe",
+    subtitle: "사칙연산을 활용한 Unity 모바일게임",
+    about: `정보문화학 전공강의 ‘게임의 이해’를 수강하며 진행한 프로젝트로,
+              Unity를 처음 접하며 제작한 작품입니다. Mathe Te는 1인 개발로
+              진행된 모바일 게임 프로젝트로, 주어진 숫자들을 사칙연산으로
+              조합하여 적들의 숫자로 만들어 제거하는 디펜스 게임입니다. 해당
+              프로젝트는 18년도 1학기 정보문화학 과제전에 출품되었습니다.`,
+    period: "2018.05. ~ 2018.06.",
+    devStacks: [DevStack.Unity],
+    images: [
+      "/projects/mathete/mathete1.jpg",
+      "/projects/mathete/mathete2.png",
+    ],
+    implementation: `- 숫자 카드 및 사칙연산 해독 알고리즘, 몬스터 생성 알고리즘 
+    - 무기 및 스킬 시스템, 공격 시 시각적/청각적 효과`,
+  },
+  {
+    title: "NewBid",
+    subtitle: "공예품 경매 서비스 웹페이지 개발",
+    about: `'뉴비드'는 공예품 전문매장 '로파서울'((주)따바프레스)에서 기획한
+              온라인 예술품 경매 서비스입니다. Remix 프레임워크와 Netlify
+              호스팅, 그리고 Firebase를 활용해 별도의 서버 구축 없이 웹서비스를
+              배포하였습니다. 해당 사이트에서 10월 중순에 진행된 '크래프트서울'
+              전시회에서 선보인 예술품 14점을 대상으로 경매를 진행하였습니다.
+              온라인 상에서 약 60%의 제품이 입찰되었으며, 추후 프로젝트 확장을
+              위해 지속적으로 따바프레스와 협업 중입니다.`,
+    period: "2022.09. ~ 2022.10.",
+    devStacks: [
+      DevStack.React,
+      DevStack.Remix,
+      DevStack.Firebase,
+      DevStack.Netlify,
+    ],
+    images: [
+      "/projects/newbid/newbid1.jpg",
+      "/projects/newbid/newbid2.jpg",
+      "/projects/newbid/newbid3.jpg",
+    ],
+    implementation: `- 폰트업체 '산돌'의 협찬을 받아 Sandoll 그레타샌즈 웹폰트를 적용
+    - 경매 입찰시 고객에게 메세지를 주기 위한 알림톡 API 적용
+    - 카카오톡 API를 통한 로그인 시스템 및 플러스친구 기능
+    - Firebase를 통해 관리되는 경매 시스템`,
+  },
+  {
+    title: "로파 파트너사이트",
+    subtitle: "물류 전산 관리 웹페이지 개발",
+    about: `로파서울의 물류 처리를 위한 사무 웹사이트를 개발하였습니다. 이전
+              뉴비드 프로젝트와 마찬가지로, Remix 프레임워크와 Netlify 호스팅,
+              그리고 Firebase의 데이터베이스와 인증시스템을 통해 별도의 서버
+              구현 없이 사이트를 구현하였습니다. 사이트의 주요 기능은 엑셀 파일
+              인식을 바탕으로 한 정산 및 주문서, 운송장 처리이며, 일부 기능
+              사용시 관리자 또는 고객사에게 알림 문자가 발송됩니다. (알리고 API
+              사용)`,
+    period: "2023.01. ~ 2023.02., 이후 지속 관리 중",
+    devStacks: [
+      DevStack.React,
+      DevStack.Remix,
+      DevStack.Firebase,
+      DevStack.Netlify,
+    ],
+    images: [
+      "/projects/lofapartner/lofapartner1.png",
+      "/projects/lofapartner/lofapartner2.png",
+    ],
+    implementation: `- Firebase Auth를 활용하여 개발자 없이 사용자가 직접 관리할 수 있는 회원 시스템
+    - 고객사 전용 페이지와 다른 기능 및 UI를 지닌 관리자 페이지 
+    - 업로드한 엑셀 파일을 읽어 정산내역 또는 운송장 기록을 생성하고 관리할 수 있는 시스템
+    - Firestore를 통해 관리되는 고객사 정보와 물류 정보
+    - 정산내역 공유 등 업무 발생시 사용자에게 문자 메세지를 주기 위한 알림톡 API 적용`,
+  },
+  {
+    title: "써치라이트",
+    subtitle: "전시회 및 출품 작가를 소개하기 위한 웹사이트 개발",
+    about: `'써치라이트'는 신진 작가를 소개하기 위해 로파서울에서 기획한 전시회이며, 해당 전시회에 출품한 작가를 소개하기 위한 웹사이트를 개발하였습니다. 기존에 본인이 진행한 웹 프로젝트와 다르게 Next.js 프레임워크와 Vercel 호스팅을 활용하였습니다. 총 35명의 작가들과 200점 이상의 예술품이 사이트에 등록되어 있습니다. 
+            `,
+    period: "2023.10.",
+    devStacks: [DevStack.React, DevStack.Nextjs, DevStack.Vercel],
+    images: [
+      "/projects/searchlight/searchlight1.png",
+      "/projects/searchlight/searchlight2.png",
+    ],
+    implementation: `- 사이트 내 애니메이션 효과 적용
+    - 반응형 디자인을 통해 모바일/PC 양 플랫폼에서 적절한 화면 구성을 보여줌`,
+  },
 ];
