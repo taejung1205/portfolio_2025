@@ -10,12 +10,20 @@ export type Project = {
   images: string[]; //프로젝트 이미지
   implementation: string; //구현 내용
   externalLink?: ExternalLink[];
+  projectType: ProjectType;
 };
 
 export type ExternalLink = {
   link: string;
   linkType: ExternalLinkType;
 };
+
+export enum ProjectType {
+  Business = "회사 프로젝트",
+  Freelancer = "프리랜서 작업물",
+  Personal = "개인 작업물",
+  Undergraduate = "학부 프로젝트",
+}
 
 export function getProjectByTitle(title: string): Project | undefined {
   return ProjectsList.find((project) => project.title === title);
@@ -28,6 +36,30 @@ export function getProjectsByDevStack(devStacks: DevStack[]): Project[] {
 }
 
 export const ProjectsList: Project[] = [
+  {
+    title: "MatheTe",
+    subtitle: "사칙연산을 활용한 Unity 모바일게임",
+    about: `정보문화학 전공강의 ‘게임의 이해’를 수강하며 진행한 프로젝트로,
+              Unity를 처음 접하며 제작한 작품입니다. Mathe Te는 1인 개발로
+              진행된 모바일 게임 프로젝트로, 주어진 숫자들을 사칙연산으로
+              조합하여 적들의 숫자로 만들어 제거하는 디펜스 게임입니다. 해당
+              프로젝트는 18년도 1학기 정보문화학 과제전에 출품되었습니다.`,
+    period: "2018.05. ~ 2018.06.",
+    devStacks: [DevStack.Unity],
+    images: [
+      "/projects/mathete/mathete1.jpg",
+      "/projects/mathete/mathete2.png",
+    ],
+    implementation: `- 숫자 카드 및 사칙연산 해독 알고리즘, 몬스터 생성 알고리즘 
+    - 무기 및 스킬 시스템, 공격 시 시각적/청각적 효과`,
+    externalLink: [
+      {
+        link: "https://www.youtube.com/embed/_eSYzxgJ8sE",
+        linkType: ExternalLinkType.Video,
+      },
+    ],
+    projectType: ProjectType.Undergraduate,
+  },
   {
     title: "EUICC Profile Tester",
     subtitle:
@@ -43,6 +75,7 @@ export const ProjectsList: Project[] = [
     implementation: `- Android 단말기 내 설치된 eUICC 프로필 목록 표시 및 프로필 활성/비활성 
     - eUICC 프로필 설치 테스트 결과 통신 및 웹사이트에 결과 표시
     - 웹사이트에서 QR코드 이미지 파일을 통한 코드 입력`,
+    projectType: ProjectType.Business,
   },
   {
     title: "PetRun MVP",
@@ -66,6 +99,7 @@ export const ProjectsList: Project[] = [
     - 네이버 맵 기반 산책 경로 트래킹 서비스
     - 산책 기록 저장 및 산책 경로 워터마크화 기능
     - 산책 서비스 이용자간 상호작용 기능`,
+    projectType: ProjectType.Business,
   },
   {
     title: "Evoclass 웹페이지 리뉴얼",
@@ -83,47 +117,7 @@ export const ProjectsList: Project[] = [
     - 랜딩페이지 헤더, 회사 소개 페이지, 사용법 페이지 리뉴얼
     - 화면 크기에 따른 반응형 웹페이지 구현
     - 기존 페이지의 서비스가 호환되도록 만들기 위한 개발 환경 작업`,
-  },
-  {
-    title: "Facewallet 테스트 엔지니어링",
-    subtitle: "멀티체인 지갑 API와 웹 서비스에 대한 테스트 엔지니어링",
-    about: `'페이스월렛(Facewallet)'은 P2E, NFT 게임 내에서 멀티체인 지갑을 사용할 수 있도록 API를 제공하는 해치랩스(주)의 서비스입니다.
-              해치랩스의 테스트 엔지니어로 근무하며 서비스 기능이 배포되기 전 자동으로 수행되는 E2E(End-to-End) 테스트의 유지보수와 QA 업무를 진행했습니다.
-              Facewallet API의 주요 기능을 테스트하기 위한 데모 사이트인 샘플댑, 앱 내 이식 없이 페이스월렛의 단독 사용을 위한 스탠드얼론,
-              페이스월렛을 사용하는 앱을 고객사가 관리할 수 있게 해주는 대시보드의 테스트 작업을 진행했습니다.`,
-    period: "2023.08. ~ 2024.02.",
-    devStacks: [DevStack.React, DevStack.Playwright, DevStack.Typescript],
-    images: [
-      "/projects/facewallet/facewallet1.png",
-      "/projects/facewallet/facewallet2.png",
-    ],
-    implementation: `- Facewallet의 기존 E2E 자동화 테스트 시스템 유지보수 
-    - Facewallet 테스트 시나리오 관리 및 QA 업무 수행
-    - Facewallet의 2단계 보안 인증에 대한 E2E 테스트 시나리오 구현
-    - Facewallet 대시보드에 대한 E2E 자동화 테스트 지원`,
-  },
-  {
-    title: "MatheTe",
-    subtitle: "사칙연산을 활용한 Unity 모바일게임",
-    about: `정보문화학 전공강의 ‘게임의 이해’를 수강하며 진행한 프로젝트로,
-              Unity를 처음 접하며 제작한 작품입니다. Mathe Te는 1인 개발로
-              진행된 모바일 게임 프로젝트로, 주어진 숫자들을 사칙연산으로
-              조합하여 적들의 숫자로 만들어 제거하는 디펜스 게임입니다. 해당
-              프로젝트는 18년도 1학기 정보문화학 과제전에 출품되었습니다.`,
-    period: "2018.05. ~ 2018.06.",
-    devStacks: [DevStack.Unity],
-    images: [
-      "/projects/mathete/mathete1.jpg",
-      "/projects/mathete/mathete2.png",
-    ],
-    implementation: `- 숫자 카드 및 사칙연산 해독 알고리즘, 몬스터 생성 알고리즘 
-    - 무기 및 스킬 시스템, 공격 시 시각적/청각적 효과`,
-    externalLink: [
-      {
-        link: "https://www.youtube.com/embed/_eSYzxgJ8sE",
-        linkType: ExternalLinkType.Video,
-      },
-    ],
+    projectType: ProjectType.Business,
   },
   {
     title: "NewBid",
@@ -158,7 +152,63 @@ export const ProjectsList: Project[] = [
         linkType: ExternalLinkType.ExternalSite,
       },
     ],
+    projectType: ProjectType.Freelancer,
   },
+
+  {
+    title: "FlashBack: Pause Ahead",
+    subtitle: "언리얼 엔진을 활용한 게임 습작",
+    about: `2022-2 정보문화학 강의 '산학연구실습'의 과제물로 제작한 견습 모작 게임입니다. Askiisoft가 2013년에 개발한 플랫포머 플래시게임 'Pause Ahead'의 게임 메카닉을 재현한 플래시게임으로, 일시정지 도중 관성이 유지되는 기믹을 활용해 물리적으로 클리어가 불가능한 레벨을 클리어하는 것이 이 게임의 목표입니다.`,
+    period: "2022.10.",
+    devStacks: [DevStack.Unreal],
+    images: ["/projects/pauseahead/pauseahead.png"],
+    implementation: `- 기본적인 횡스크롤 플랫포머 게임 시스템 구현 및 5개의 레벨 디자인
+    - 'Pause Ahead' 원작 특유의, 일시정지 상태에서 캐릭터 이동 관성이 유지되는 기믹 구현
+    총 플레이 타임: 10분 이내`,
+    externalLink: [
+      {
+        link: "https://taejung1205.itch.io/pauseaheadmockup",
+        linkType: ExternalLinkType.ExternalSite,
+      },
+    ],
+    projectType: ProjectType.Undergraduate,
+  },
+  {
+    title: "세 명의 총잡이",
+    subtitle: "유니티 엔진을 활용한 기능성 게임 습작",
+    about: `2022-2 정보문화학 강의 '시리어스 게임'의 과제물로 제작한 시뮬레이션 게임입니다. 유명한 게임 이론인 '세 명의 총잡이'의 등장인물이 되어, 주어진 규칙에서 생존 확률을 가장 높이는 선택지를 고르는 것이 목표입니다. 직접 자신의 명중률을 조정해서 시험해볼 수 있는 커스텀 모드를 지원합니다.`,
+    period: "2022.10.",
+    devStacks: [DevStack.Unity],
+    images: ["/projects/truel/truel.png"],
+    implementation: `- 마우스 조작을 바탕으로 플레이할 수 있는 간단한 게임 구현
+    총 플레이 타임: 5분 이내`,
+    externalLink: [
+      {
+        link: "https://taejung1205.itch.io/truel",
+        linkType: ExternalLinkType.ExternalSite,
+      },
+    ],
+    projectType: ProjectType.Undergraduate,
+  },
+  {
+    title: "Remote Run",
+    subtitle: "아두이노를 활용한 물리적 인터페이스 구현",
+    about: `2022-2 정보문화학 강의 '인터랙티브 미디어'의 과제물로 제작한 게임입니다. 초음파 센서를 활용해 만들어진 아두이노 장치를 컨트롤러로 사용하여, 양손과 컨트롤러 사이의 거리를 활용해 캐릭터의 좌우 이동을 조작하여 장애물을 피한 채 완주하는 게임입니다.`,
+    period: "2022.10.",
+    devStacks: [DevStack.Unity, DevStack.Arduino],
+    images: ["/projects/remote_run/remoterun.png"],
+    implementation: `- 초음파 센서를 통해 기기 양측의 감지 거리를 입력받아 게임 캐릭터를 조작할 수 있게 하는 물리적 인터페이스 구현
+    - 플레이 난이도를 고려한 3D 레벨 디자인 
+    총 플레이 타임: 5분 이내`,
+    externalLink: [
+      {
+        link: "https://youtube.com/shorts/I4KB9oM3-PY",
+        linkType: ExternalLinkType.Video,
+      },
+    ],
+    projectType: ProjectType.Undergraduate,
+  },
+
   {
     title: "로파 파트너사이트",
     subtitle: "물류 전산 관리 웹페이지 개발",
@@ -187,7 +237,28 @@ export const ProjectsList: Project[] = [
     - Firestore를 통해 관리되는 고객사 정보와 물류 정보
     - 정산내역 공유 등 업무 발생시 사용자에게 문자 메세지를 주기 위한 알림톡 API 적용
     - Resend API를 활용하여 월간 정산 진행 후 고객사에게 일괄적으로 이메일 알림을 발송하는 기능 구현`,
+    projectType: ProjectType.Freelancer,
   },
+  {
+    title: "Facewallet 테스트 엔지니어링",
+    subtitle: "멀티체인 지갑 API와 웹 서비스에 대한 테스트 엔지니어링",
+    about: `'페이스월렛(Facewallet)'은 P2E, NFT 게임 내에서 멀티체인 지갑을 사용할 수 있도록 API를 제공하는 해치랩스(주)의 서비스입니다.
+              해치랩스의 테스트 엔지니어로 근무하며 서비스 기능이 배포되기 전 자동으로 수행되는 E2E(End-to-End) 테스트의 유지보수와 QA 업무를 진행했습니다.
+              Facewallet API의 주요 기능을 테스트하기 위한 데모 사이트인 샘플댑, 앱 내 이식 없이 페이스월렛의 단독 사용을 위한 스탠드얼론,
+              페이스월렛을 사용하는 앱을 고객사가 관리할 수 있게 해주는 대시보드의 테스트 작업을 진행했습니다.`,
+    period: "2023.08. ~ 2024.02.",
+    devStacks: [DevStack.React, DevStack.Playwright, DevStack.Typescript],
+    images: [
+      "/projects/facewallet/facewallet1.png",
+      "/projects/facewallet/facewallet2.png",
+    ],
+    implementation: `- Facewallet의 기존 E2E 자동화 테스트 시스템 유지보수 
+    - Facewallet 테스트 시나리오 관리 및 QA 업무 수행
+    - Facewallet의 2단계 보안 인증에 대한 E2E 테스트 시나리오 구현
+    - Facewallet 대시보드에 대한 E2E 자동화 테스트 지원`,
+    projectType: ProjectType.Business,
+  },
+
   {
     title: "써치라이트",
     subtitle: "전시회 및 출품 작가를 소개하기 위한 웹사이트 개발",
@@ -212,57 +283,9 @@ export const ProjectsList: Project[] = [
         linkType: ExternalLinkType.ExternalSite,
       },
     ],
+    projectType: ProjectType.Freelancer,
   },
-  {
-    title: "FlashBack: Pause Ahead",
-    subtitle: "언리얼 엔진을 활용한 게임 습작",
-    about: `2022-2 정보문화학 강의 '산학연구실습'의 과제물로 제작한 견습 모작 게임입니다. Askiisoft가 2013년에 개발한 플랫포머 플래시게임 'Pause Ahead'의 게임 메카닉을 재현한 플래시게임으로, 일시정지 도중 관성이 유지되는 기믹을 활용해 물리적으로 클리어가 불가능한 레벨을 클리어하는 것이 이 게임의 목표입니다.`,
-    period: "2022.10.",
-    devStacks: [DevStack.Unreal],
-    images: ["/projects/pauseahead/pauseahead.png"],
-    implementation: `- 기본적인 횡스크롤 플랫포머 게임 시스템 구현 및 5개의 레벨 디자인
-    - 'Pause Ahead' 원작 특유의, 일시정지 상태에서 캐릭터 이동 관성이 유지되는 기믹 구현
-    총 플레이 타임: 10분 이내`,
-    externalLink: [
-      {
-        link: "https://taejung1205.itch.io/pauseaheadmockup",
-        linkType: ExternalLinkType.ExternalSite,
-      },
-    ],
-  },
-  {
-    title: "세 명의 총잡이",
-    subtitle: "유니티 엔진을 활용한 기능성 게임 습작",
-    about: `2022-2 정보문화학 강의 '시리어스 게임'의 과제물로 제작한 시뮬레이션 게임입니다. 유명한 게임 이론인 '세 명의 총잡이'의 등장인물이 되어, 주어진 규칙에서 생존 확률을 가장 높이는 선택지를 고르는 것이 목표입니다. 직접 자신의 명중률을 조정해서 시험해볼 수 있는 커스텀 모드를 지원합니다.`,
-    period: "2022.10.",
-    devStacks: [DevStack.Unity],
-    images: ["/projects/truel/truel.png"],
-    implementation: `- 마우스 조작을 바탕으로 플레이할 수 있는 간단한 게임 구현
-    총 플레이 타임: 5분 이내`,
-    externalLink: [
-      {
-        link: "https://taejung1205.itch.io/truel",
-        linkType: ExternalLinkType.ExternalSite,
-      },
-    ],
-  },
-  {
-    title: "Remote Run",
-    subtitle: "아두이노를 활용한 물리적 인터페이스 구현",
-    about: `2022-2 정보문화학 강의 '인터랙티브 미디어'의 과제물로 제작한 게임입니다. 초음파 센서를 활용해 만들어진 아두이노 장치를 컨트롤러로 사용하여, 양손과 컨트롤러 사이의 거리를 활용해 캐릭터의 좌우 이동을 조작하여 장애물을 피한 채 완주하는 게임입니다.`,
-    period: "2022.10.",
-    devStacks: [DevStack.Unity, DevStack.Arduino],
-    images: ["/projects/remote_run/remoterun.png"],
-    implementation: `- 초음파 센서를 통해 기기 양측의 감지 거리를 입력받아 게임 캐릭터를 조작할 수 있게 하는 물리적 인터페이스 구현
-    - 플레이 난이도를 고려한 3D 레벨 디자인 
-    총 플레이 타임: 5분 이내`,
-    externalLink: [
-      {
-        link: "https://youtube.com/shorts/I4KB9oM3-PY",
-        linkType: ExternalLinkType.Video,
-      },
-    ],
-  },
+
   {
     title: "Tilty Flight",
     subtitle: "자이로센서를 활용하여 조작하는 모바일 캐주얼 게임",
@@ -293,6 +316,7 @@ export const ProjectsList: Project[] = [
         linkType: ExternalLinkType.ExternalSite,
       },
     ],
+    projectType: ProjectType.Personal,
   },
   {
     title: "CardSmith: Make Your Own Cards",
@@ -329,5 +353,6 @@ export const ProjectsList: Project[] = [
         linkType: ExternalLinkType.Video,
       },
     ],
+    projectType: ProjectType.Personal,
   },
 ];

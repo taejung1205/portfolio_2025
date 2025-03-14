@@ -7,7 +7,7 @@ import ProjectsSection from "@components/Sections/ProjectSection";
 import OutroSection from "@components/Sections/OutroSection";
 import { useEffect, useRef, useState } from "react";
 import ProjectModal from "@components/Modals/ProjectModal";
-import { getProjectByTitle, Project } from "@components/Project";
+import { getProjectByTitle, Project, ProjectType } from "@components/Project";
 import { DevStack } from "@components/DevStack";
 
 export default function Home() {
@@ -41,8 +41,10 @@ export default function Home() {
     devStacks: [],
     images: [],
     implementation: "",
+    projectType: ProjectType.Personal,
   });
   const [selectedStacks, setSelectedStacks] = useState<DevStack[]>([]);
+  const [selectedProjectType, setSelectedProjectType] = useState<ProjectType>();
 
   function onProjectClick(project: Project) {
     setSelectedProject(project);
@@ -97,6 +99,8 @@ export default function Home() {
         onProjectClick={onProjectClick}
         selectedStacks={selectedStacks}
         setSelectedStacks={setSelectedStacks}
+        selectedProjectType={selectedProjectType}
+        setSelectedProjectType={setSelectedProjectType}
       />
 
       <div ref={outroSectionRef} data-section="outro" />
