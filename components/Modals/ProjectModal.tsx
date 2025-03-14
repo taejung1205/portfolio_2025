@@ -1,4 +1,8 @@
 import { CloseButton, Dialog, HStack, Portal } from "@chakra-ui/react";
+import {
+  ExternalLinkButton,
+  ExternalLinkType,
+} from "@components/ExternalLinkButton";
 import { Project } from "@components/Project";
 import { CustomText, FontFamily } from "@components/Text";
 import {
@@ -57,13 +61,27 @@ export default function ProjectModal({
                 }}
               >
                 <div style={{ color: "white" }}>
-                  <CustomText
-                    fontFamily={FontFamily.Warhaven}
-                    fontSize={60}
-                    fontWeight={700}
-                  >
-                    {selectedProject.title}
-                  </CustomText>
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <CustomText
+                      fontFamily={FontFamily.Warhaven}
+                      fontSize={60}
+                      fontWeight={700}
+                    >
+                      {selectedProject.title}
+                    </CustomText>
+                    <div style={{ width: "30px" }} />
+                    <div style={{ display: "flex", gap: "20px" }}>
+                      {selectedProject.externalLink &&
+                        selectedProject.externalLink.map((item, index) => (
+                          <ExternalLinkButton
+                            link={item.link}
+                            linkType={item.linkType}
+                            size={60}
+                          />
+                        ))}
+                    </div>
+                  </div>
+
                   <div style={{ height: "10px" }} />
                   <CustomText
                     fontFamily={FontFamily.Warhaven}

@@ -1,4 +1,5 @@
 import { DevStack } from "./DevStack";
+import { ExternalLinkType } from "./ExternalLinkButton";
 
 export type Project = {
   title: string;
@@ -8,6 +9,12 @@ export type Project = {
   devStacks: DevStack[]; //기술 스택
   images: string[]; //프로젝트 이미지
   implementation: string; //구현 내용
+  externalLink?: ExternalLink[];
+};
+
+export type ExternalLink = {
+  link: string;
+  linkType: ExternalLinkType;
 };
 
 export function getProjectByTitle(title: string): Project | undefined {
@@ -111,6 +118,12 @@ export const ProjectsList: Project[] = [
     ],
     implementation: `- 숫자 카드 및 사칙연산 해독 알고리즘, 몬스터 생성 알고리즘 
     - 무기 및 스킬 시스템, 공격 시 시각적/청각적 효과`,
+    externalLink: [
+      {
+        link: "https://www.youtube.com/embed/_eSYzxgJ8sE",
+        linkType: ExternalLinkType.Video,
+      },
+    ],
   },
   {
     title: "NewBid",
@@ -128,7 +141,7 @@ export const ProjectsList: Project[] = [
       DevStack.Remix,
       DevStack.Firebase,
       DevStack.Netlify,
-      DevStack.Typescript
+      DevStack.Typescript,
     ],
     images: [
       "/projects/newbid/newbid1.jpg",
@@ -139,6 +152,12 @@ export const ProjectsList: Project[] = [
     - 경매 입찰시 고객에게 메세지를 주기 위한 알림톡 API 적용
     - 카카오톡 API를 통한 로그인 시스템 및 플러스친구 기능
     - Firebase를 통해 관리되는 경매 시스템`,
+    externalLink: [
+      {
+        link: "https://newbid.netlify.app/",
+        linkType: ExternalLinkType.ExternalSite,
+      },
+    ],
   },
   {
     title: "로파 파트너사이트",
@@ -156,7 +175,7 @@ export const ProjectsList: Project[] = [
       DevStack.Remix,
       DevStack.Firebase,
       DevStack.Netlify,
-      DevStack.Typescript
+      DevStack.Typescript,
     ],
     images: [
       "/projects/lofapartner/lofapartner1.png",
@@ -175,13 +194,24 @@ export const ProjectsList: Project[] = [
     about: `'써치라이트'는 신진 작가를 소개하기 위해 로파서울에서 기획한 전시회이며, 해당 전시회에 출품한 작가를 소개하기 위한 웹사이트를 개발하였습니다. 기존에 본인이 진행한 웹 프로젝트와 다르게 Next.js 프레임워크와 Vercel 호스팅을 활용하였습니다. 총 35명의 작가들과 200점 이상의 예술품이 사이트에 등록되어 있습니다. 
             `,
     period: "2023.10.",
-    devStacks: [DevStack.React, DevStack.Nextjs, DevStack.Vercel, DevStack.Typescript],
+    devStacks: [
+      DevStack.React,
+      DevStack.Nextjs,
+      DevStack.Vercel,
+      DevStack.Typescript,
+    ],
     images: [
       "/projects/searchlight/searchlight1.png",
       "/projects/searchlight/searchlight2.png",
     ],
     implementation: `- 사이트 내 애니메이션 효과 적용
     - 화면 크기에 따른 반응형 웹페이지 구현`,
+    externalLink: [
+      {
+        link: "https://searchlight.vercel.app/",
+        linkType: ExternalLinkType.ExternalSite,
+      },
+    ],
   },
   {
     title: "FlashBack: Pause Ahead",
@@ -193,6 +223,12 @@ export const ProjectsList: Project[] = [
     implementation: `- 기본적인 횡스크롤 플랫포머 게임 시스템 구현 및 5개의 레벨 디자인
     - 'Pause Ahead' 원작 특유의, 일시정지 상태에서 캐릭터 이동 관성이 유지되는 기믹 구현
     총 플레이 타임: 10분 이내`,
+    externalLink: [
+      {
+        link: "https://taejung1205.itch.io/pauseaheadmockup",
+        linkType: ExternalLinkType.ExternalSite,
+      },
+    ],
   },
   {
     title: "세 명의 총잡이",
@@ -203,6 +239,12 @@ export const ProjectsList: Project[] = [
     images: ["/projects/truel/truel.png"],
     implementation: `- 마우스 조작을 바탕으로 플레이할 수 있는 간단한 게임 구현
     총 플레이 타임: 5분 이내`,
+    externalLink: [
+      {
+        link: "https://taejung1205.itch.io/truel",
+        linkType: ExternalLinkType.ExternalSite,
+      },
+    ],
   },
   {
     title: "Remote Run",
@@ -214,5 +256,78 @@ export const ProjectsList: Project[] = [
     implementation: `- 초음파 센서를 통해 기기 양측의 감지 거리를 입력받아 게임 캐릭터를 조작할 수 있게 하는 물리적 인터페이스 구현
     - 플레이 난이도를 고려한 3D 레벨 디자인 
     총 플레이 타임: 5분 이내`,
+    externalLink: [
+      {
+        link: "https://youtube.com/shorts/I4KB9oM3-PY",
+        linkType: ExternalLinkType.Video,
+      },
+    ],
+  },
+  {
+    title: "Tilty Flight",
+    subtitle: "자이로센서를 활용하여 조작하는 모바일 캐주얼 게임",
+    about:
+      "'Tilty Flight'는 스마트폰을 기울여 비행기를 조종하며 장애물을 피하고 최대한 오래 생존하는 것을 목표로 하는 3D 러너 게임입니다. 대부분의 모바일 게임이 터치 조작에 의존하는 것과 달리, 이 게임은 모션 컨트롤을 핵심 조작 방식으로 고정하여, 오직 기기를 기울이는 동작으로만 비행기를 조종할 수 있습니다. 플레이어는 기기를 기울이며 비행기를 조종해 다가오는 장애물을 피하고, 맵에 등장하는 코인을 모으며 최상의 점수를 기록하는 것이 목표입니다.",
+    period: "2024.10. ~ 2024.11.",
+    devStacks: [DevStack.Unity, DevStack.Android],
+    images: [
+      "/projects/tilty_flight/tilty_flight_1.jpg",
+      "/projects/tilty_flight/tilty_flight_2.jpg",
+      "/projects/tilty_flight/tilty_flight_3.jpg",
+      "/projects/tilty_flight/tilty_flight_4.jpg",
+      "/projects/tilty_flight/tilty_flight_5.jpg",
+    ],
+    implementation: `- 단말기의 기울기를 조절하여 비행기의 움직임을 조작하는 인터페이스, 기본 기울기 설정 기능
+    - 장애물을 포함한 레벨 디자인
+    - Google Admob을 활용한 하단 배너 광고 및 전면 광고
+    - Google Play Games Service를 활용한 리더보드 및 업적 시스템
+    - 원스토어 및 구글플레이에 출시한 상태 
+    판당 플레이 타임: 3분 이내`,
+    externalLink: [
+      {
+        link: "https://youtube.com/shorts/o4zDHOoDYPI",
+        linkType: ExternalLinkType.Video,
+      },
+      {
+        link: "https://play.google.com/store/apps/details?id=com.KTJGames.TiltyFlight",
+        linkType: ExternalLinkType.ExternalSite,
+      },
+    ],
+  },
+  {
+    title: "CardSmith: Make Your Own Cards",
+    subtitle: "사용자가 직접 카드를 만들어 사용하는 모바일 캐주얼 카드 게임",
+    about: `
+'CardSmith'는 유저가 직접 카드를 만들고, 그 카드를 활용하여 다른 유저들과 대결을 펼치는 캐주얼 전략 카드 게임입니다.
+ 주어진 한도 내에서 카드의 스탯과 능력을 조합해 나만의 카드를 만들고, 카드에 사용될 캐릭터 일러스트와 배경, 카드 이펙트 등을 직접 선택해 카드에 개성을 더할 수 있습니다.
+ Indie Marc의 TCG Engine 유니티 에셋을 기반으로 하여 온라인 배틀 시스템을 구현하였고, 유저가 직접 만든 카드를 서버에 저장하여 카드를 수집하고 실제 카드 배틀에 사용될 수 있도록 구현하였습니다.
+ 컴투스 글로벌 게임개발 공모전 '컴:온'에 출시하기 위해 기획 및 개발되었습니다.
+    `,
+    period: "2024.12. ~ 2025.01.",
+    devStacks: [
+      DevStack.Unity,
+      DevStack.Android,
+      DevStack.Nodejs,
+      DevStack.Javascript,
+    ],
+    images: [
+      "/projects/cardsmith/cardsmith_1.png",
+      "/projects/cardsmith/cardsmith_2.png",
+      "/projects/cardsmith/cardsmith_3.png",
+      "/projects/cardsmith/cardsmith_4.png",
+      "/projects/cardsmith/cardsmith_5.png",
+      "/projects/cardsmith/cardsmith_6.png",
+    ],
+    implementation: `- Indie Marc의 TCG Engine 에셋을 기반으로 한 계정 시스템과 온라인 매치 시스템
+    - 자바스크립트 기반의 TCG Engine 서버 API를 개량하여 구현한 카드 제작 및 수집 시스템
+    - 플레이어가 직접 자신의 사진을 게임 어플리케이션에 업로드하여 카드의 일러스트로 사용할 수 있게 만드는 기능
+    - 기존 웹게임 'Urban Rivals'를 벤치마킹하여 기획한 게임 룰을 유니티로 새롭게 구현
+    판당 플레이 타임: 5분 이내`,
+    externalLink: [
+      {
+        link: "https://drive.google.com/file/d/1fM0FGXH22IUTGFDq8Oy9Oj9PdJ3xh--u/view?usp=drive_link",
+        linkType: ExternalLinkType.Video,
+      },
+    ],
   },
 ];
