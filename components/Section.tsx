@@ -31,6 +31,7 @@ export function Section({
         alignItems: "center",
         flexDirection: "column",
         padding: "30px",
+        paddingBottom: "50px"
       }}
     >
       {children}

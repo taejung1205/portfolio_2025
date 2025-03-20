@@ -1,26 +1,36 @@
 import { Section, SectionTheme } from "@components/Section";
 import { CustomText, FontFamily, MotionCustomText } from "@components/Text";
 import { useEffect, useState } from "react";
-import { Separator, Spacer } from "@chakra-ui/react";
+import { Separator, Spacer, useMediaQuery } from "@chakra-ui/react";
 
-export default function AboutSection({screenType}) {
+export default function AboutSection({ screenType }) {
   const [fontLoaded, setFontLoaded] = useState(false);
+  const [isSmallMobile, setIsSmallMobile] = useState(false);
 
   useEffect(() => {
     document.fonts.ready.then(() => setFontLoaded(true));
-  }, []);
 
-  const textAnimation = {
-    initial: { opacity: 0, y: 40 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 1, ease: "easeOut" },
-  };
+    const handleResize = () => {
+      if (window.innerWidth < 400) {
+        setIsSmallMobile(true);
+      } else {
+        setIsSmallMobile(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <Section theme={SectionTheme.Light} screenType={screenType}>
       {fontLoaded && (
         <div
-          style={{ display: "flex", justifyContent: "center", width: "80%" }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: screenType == "mobile" ? "column" : "row",
+          }}
         >
           {/* 프로필 이미지와 이름, 생년월일 및 연락처*/}
           <div
@@ -31,15 +41,26 @@ export default function AboutSection({screenType}) {
               textAlign: "center",
               justifyContent: "center",
               gap: "10px",
-              minWidth: "300px",
+              minWidth: isSmallMobile ? "240px" : "300px",
             }}
           >
+            {screenType == "mobile" && (
+              <CustomText
+                fontFamily={FontFamily.Warhaven}
+                fontSize={isSmallMobile ? 45 : 55}
+                fontWeight={700}
+              >
+                ABOUT ME
+              </CustomText>
+            )}
+
             <img
               src={"/photos/selfie-modified.png"}
               style={{
                 userSelect: "none",
-                width: "300px",
+                width: isSmallMobile ? "240px" : "300px",
                 objectFit: "contain",
+                alignSelf: "center",
               }}
             />
             <div style={{ height: "20px" }} />
@@ -109,7 +130,7 @@ export default function AboutSection({screenType}) {
 
               <CustomText
                 fontFamily={FontFamily.Warhaven}
-                fontSize={20}
+                fontSize={isSmallMobile ? 16 : 20}
                 fontWeight={400}
               >
                 immcoc1@naver.com
@@ -130,7 +151,7 @@ export default function AboutSection({screenType}) {
 
               <CustomText
                 fontFamily={FontFamily.Warhaven}
-                fontSize={20}
+                fontSize={isSmallMobile ? 16 : 20}
                 fontWeight={400}
               >
                 github.com/taejung1205
@@ -150,7 +171,7 @@ export default function AboutSection({screenType}) {
               />
               <CustomText
                 fontFamily={FontFamily.Warhaven}
-                fontSize={16}
+                fontSize={isSmallMobile ? 12 : 16}
                 fontWeight={400}
               >
                 linkedin.com/in/1205taejungkim
@@ -158,7 +179,7 @@ export default function AboutSection({screenType}) {
             </div>
           </div>
 
-          <div style={{ minWidth: "50px" }} />
+          <div style={{ minWidth: "50px", minHeight: "50px" }} />
 
           {/* 소개 문구 */}
 
@@ -172,13 +193,16 @@ export default function AboutSection({screenType}) {
             }}
           >
             <div style={{ justifyContent: "center" }}>
-              <CustomText
-                fontFamily={FontFamily.Warhaven}
-                fontSize={60}
-                fontWeight={700}
-              >
-                ABOUT ME
-              </CustomText>
+              {screenType != "mobile" && (
+                <CustomText
+                  fontFamily={FontFamily.Warhaven}
+                  fontSize={60}
+                  fontWeight={700}
+                >
+                  ABOUT ME
+                </CustomText>
+              )}
+
               <div style={{ height: "20px" }} />
 
               <CustomText
@@ -187,21 +211,22 @@ export default function AboutSection({screenType}) {
                 fontWeight={400}
               >
                 저는 초등학생 시절부터 게임 개발자가 되는 것을 꿈꿔왔습니다.
-                <br />
+                {screenType == "desktop" && <br />}
                 디지털 장치를 조작하면 즉각적인 피드백이 눈에 보이는 점이 게임
                 개발의 가장 큰 매력이라 느꼈고,
-                <br />
+                {screenType == "desktop" && <br />}
                 이러한 흥미는 웹사이트와 모바일 애플리케이션 등 다양한 개발
                 분야로 확장되었습니다.
                 <br />
                 <br />
                 개발자로서 역량을 키우는 가장 효과적인 방법은 풍부한 프로젝트
                 경험이라 생각합니다.
-                <br />
+                {screenType == "desktop" && <br />}
                 여러 회사를 거치며 쌓은 협업 경험을 통해 다양한 개발
                 프레임워크를 접할 기회를 가졌고,
-                <br />그 과정에서 새로운 프로젝트에 도전하고 새로운 개발 환경에
-                적응하는 자신감을 얻을 수 있었습니다.
+                {screenType == "desktop" && <br />}그 과정에서 새로운 프로젝트에
+                도전하고 새로운 개발 환경에 적응하는 자신감을 얻을 수
+                있었습니다.
               </CustomText>
             </div>
 
@@ -211,7 +236,7 @@ export default function AboutSection({screenType}) {
               <CustomText
                 fontFamily={FontFamily.Warhaven}
                 fontSize={40}
-                fontWeight={400}
+                fontWeight={700}
               >
                 EDUCATION
               </CustomText>
@@ -219,12 +244,17 @@ export default function AboutSection({screenType}) {
               <CustomText
                 fontFamily={FontFamily.Warhaven}
                 fontSize={18}
-                fontWeight={700}
+                fontWeight={400}
               >
-                2014.03. ~ 2017.02. 세종국제고등학교
+                <b>2014.03. ~ 2017.02.</b> {screenType != "desktop" && <br />}
+                세종국제고등학교
                 <br />
-                2017.03. ~ 2024.02. 서울대학교 자유전공학부 (컴퓨터공학 주전공,
-                정보문화학 부전공)
+                {screenType != "desktop" && <br />}
+                <b>2017.03. ~ 2024.02.</b> {screenType != "desktop" && <br />}
+                서울대학교 자유전공학부 {screenType != "desktop" && <br />}
+                <span style={{ fontSize: isSmallMobile ? 12 : 16 }}>
+                  (컴퓨터공학 주전공, 정보문화학 부전공)
+                </span>
               </CustomText>
             </>
           </div>
