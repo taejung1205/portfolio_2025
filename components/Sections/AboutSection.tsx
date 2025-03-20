@@ -3,7 +3,7 @@ import { CustomText, FontFamily, MotionCustomText } from "@components/Text";
 import { useEffect, useState } from "react";
 import { Separator, Spacer } from "@chakra-ui/react";
 
-export default function AboutSection() {
+export default function AboutSection({screenType}) {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function AboutSection() {
   };
 
   return (
-    <Section theme={SectionTheme.Light}>
+    <Section theme={SectionTheme.Light} screenType={screenType}>
       {fontLoaded && (
         <div
           style={{ display: "flex", justifyContent: "center", width: "80%" }}

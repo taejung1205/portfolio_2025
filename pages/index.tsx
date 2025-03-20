@@ -96,10 +96,10 @@ export default function Home() {
       <div ref={introSectionRef} data-section="intro" />
       <IntroSection onDeviconClick={onDeviconClick} screenType={screenType} />
       <div ref={aboutSectionRef} data-section="about" />
-      <AboutSection />
+      <AboutSection screenType={screenType}/>
 
       <div ref={careerSectionRef} data-section="career" />
-      <CareerSection onProjectClick={onProjectClick} />
+      <CareerSection onProjectClick={onProjectClick} screenType={screenType}/>
 
       <div ref={projectsSectionRef} data-section="projects" />
       <ProjectsSection
@@ -108,10 +108,11 @@ export default function Home() {
         setSelectedStacks={setSelectedStacks}
         selectedProjectType={selectedProjectType}
         setSelectedProjectType={setSelectedProjectType}
+        screenType={screenType}
       />
 
       <div ref={outroSectionRef} data-section="outro" />
-      <OutroSection />
+      <OutroSection screenType={screenType} />
     </div>
   );
 }

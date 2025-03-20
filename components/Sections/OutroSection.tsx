@@ -2,7 +2,7 @@ import { Section, SectionTheme } from "@components/Section";
 import { CustomText, FontFamily, MotionCustomText } from "@components/Text";
 import { useEffect, useState } from "react";
 
-export default function OutroSection() {
+export default function OutroSection({ screenType }) {
   const [fontLoaded, setFontLoaded] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -128,10 +128,7 @@ export default function OutroSection() {
             boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
           }}
         >
-          <CustomText
-            fontFamily={FontFamily.Warhaven}
-            fontSize={30}
-          >
+          <CustomText fontFamily={FontFamily.Warhaven} fontSize={30}>
             Copied to clipboard!
           </CustomText>
         </div>

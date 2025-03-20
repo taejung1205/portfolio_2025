@@ -11,6 +11,7 @@ export default function ProjectsSection({
   setSelectedStacks,
   selectedProjectType,
   setSelectedProjectType,
+  screenType,
 }) {
   const [fontLoaded, setFontLoaded] = useState(false);
 

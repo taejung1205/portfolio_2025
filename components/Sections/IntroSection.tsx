@@ -26,7 +26,7 @@ export default function IntroSection({ onDeviconClick, screenType }) {
   const devIconSize = 100;
 
   return (
-    <Section theme={SectionTheme.Dark}>
+    <Section theme={SectionTheme.Dark} screenType={screenType}>
       <div style={{ height: 100 }} />
       {fontLoaded && (
         <div style={{textAlign: "center"}}>

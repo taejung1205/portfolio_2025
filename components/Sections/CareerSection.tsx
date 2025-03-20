@@ -10,7 +10,7 @@ import { Section, SectionTheme } from "@components/Section";
 import { CustomText, FontFamily, MotionCustomText } from "@components/Text";
 import { useEffect, useState } from "react";
 
-export default function CareerSection({ onProjectClick }) {
+export default function CareerSection({ onProjectClick, screenType }) {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
