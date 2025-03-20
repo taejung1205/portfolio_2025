@@ -159,7 +159,7 @@ export default function ProjectModal({
                   </div>
                   <div style={{ minWidth: "30px" }} />
                   <div
-                    style={{ flexGrow: 1, alignItems: "start", height: "100%" }}
+                    style={{ flexGrow: 1, alignItems: "start", height: "100%", textAlign: "justify" }}
                   >
                     <CustomText fontFamily={FontFamily.Warhaven} fontSize={24}>
                       ABOUT
