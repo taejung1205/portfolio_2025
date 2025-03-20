@@ -29,7 +29,7 @@ export default function IntroSection({ onDeviconClick, screenType }) {
     <Section theme={SectionTheme.Dark}>
       <div style={{ height: 100 }} />
       {fontLoaded && (
-        <>
+        <div style={{textAlign: "center"}}>
           <MotionCustomText
             fontFamily={FontFamily.Warhaven}
             fontSize={80}
@@ -143,7 +143,7 @@ export default function IntroSection({ onDeviconClick, screenType }) {
               />
             </div>
           </div>
-        </>
+        </div>
       )}
     </Section>
   );

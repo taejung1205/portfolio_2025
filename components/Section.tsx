@@ -24,6 +24,7 @@ export function Section({ children, theme, isLong = false }: Props) {
         justifyContent: isLong ? "flex-start" : "center",
         alignItems: "center",
         flexDirection: "column",
+        padding: "30px"
       }}
     >
       {children}
