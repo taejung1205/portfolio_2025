@@ -24,13 +24,20 @@ export default function CareerSection({ onProjectClick, screenType }) {
   };
 
   return (
-    <Section theme={SectionTheme.Dark}>
+    <Section theme={SectionTheme.Dark} screenType={screenType}>
       {fontLoaded && (
         <>
-          <div style={{ position: "absolute", top: 50, left: 50 }}>
+          <div
+            style={{
+              position: screenType === "desktop" ? "absolute" : "relative",
+              top: screenType === "desktop" ? 50 : "auto",
+              left: screenType === "desktop" ? 50 : "auto",
+              alignSelf: screenType == "tablet" ? "start" : "auto",
+            }}
+          >
             <MotionCustomText
               fontFamily={FontFamily.Warhaven}
-              fontSize={80}
+              fontSize={screenType === "mobile" ? 55 : 80}
               fontWeight={700}
               {...textAnimation}
             >
@@ -38,9 +45,11 @@ export default function CareerSection({ onProjectClick, screenType }) {
             </MotionCustomText>
           </div>
 
-          <TimelineRoot size="sm" variant="outline">
+          <div style={{ minHeight: "50px" }} />
+
+          <TimelineRoot size="sm" variant="outline" style={{wordBreak: "keep-all"}}>
             <TimelineItem>
-              <TimelineContent flex="1" />
+              {screenType != "mobile" && <TimelineContent flex="1" />}
               <TimelineConnector />
               <TimelineContent flex="1">
                 <CareerItem
@@ -51,21 +60,34 @@ export default function CareerSection({ onProjectClick, screenType }) {
               </TimelineContent>
             </TimelineItem>
 
-            <TimelineItem>
-              <TimelineContent flex="1" alignItems="flex-end">
-                <CareerItem
-                  title="애견인 종합 플랫폼 스타트업 '(주)펫런' 개발자"
-                  period="2021.11. ~ 2022.05."
-                  projectNames={["PetRun MVP"]}
-                  align="end"
-                />
-              </TimelineContent>
-              <TimelineConnector />
-              <TimelineContent flex="1" />
-            </TimelineItem>
+            {screenType == "mobile" ? (
+              <TimelineItem>
+                <TimelineConnector />
+                <TimelineContent flex="1">
+                  <CareerItem
+                    title="애견인 종합 플랫폼 스타트업 '(주)펫런' 개발자"
+                    period="2021.11. ~ 2022.05."
+                    projectNames={["PetRun MVP"]}
+                  />
+                </TimelineContent>
+              </TimelineItem>
+            ) : (
+              <TimelineItem>
+                <TimelineContent flex="1" alignItems="flex-end">
+                  <CareerItem
+                    title="애견인 종합 플랫폼 스타트업 '(주)펫런' 개발자"
+                    period="2021.11. ~ 2022.05."
+                    projectNames={["PetRun MVP"]}
+                    align="end"
+                  />
+                </TimelineContent>
+                <TimelineConnector />
+                <TimelineContent flex="1" />
+              </TimelineItem>
+            )}
 
             <TimelineItem>
-              <TimelineContent flex="1" />
+              {screenType != "mobile" && <TimelineContent flex="1" />}
               <TimelineConnector />
               <TimelineContent flex="1">
                 <CareerItem
@@ -76,21 +98,34 @@ export default function CareerSection({ onProjectClick, screenType }) {
               </TimelineContent>
             </TimelineItem>
 
-            <TimelineItem>
-              <TimelineContent flex="1" alignItems="flex-end">
-                <CareerItem
-                  title="블록체인 기업 '해치랩스(주)' 테스트 엔지니어 인턴"
-                  period="2023.08. ~ 2024.02."
-                  projectNames={["Facewallet 테스트 엔지니어링"]}
-                  align="end"
-                />
-              </TimelineContent>
-              <TimelineConnector />
-              <TimelineContent flex="1" />
-            </TimelineItem>
+            {screenType == "mobile" ? (
+              <TimelineItem>
+                <TimelineConnector />
+                <TimelineContent flex="1">
+                  <CareerItem
+                    title="블록체인 기업 '해치랩스(주)' 테스트 엔지니어 인턴"
+                    period="2023.08. ~ 2024.02."
+                    projectNames={["Facewallet 테스트 엔지니어링"]}
+                  />
+                </TimelineContent>
+              </TimelineItem>
+            ) : (
+              <TimelineItem>
+                <TimelineContent flex="1" alignItems="flex-end">
+                  <CareerItem
+                    title="블록체인 기업 '해치랩스(주)' 테스트 엔지니어 인턴"
+                    period="2023.08. ~ 2024.02."
+                    projectNames={["Facewallet 테스트 엔지니어링"]}
+                    align="end"
+                  />
+                </TimelineContent>
+                <TimelineConnector />
+                <TimelineContent flex="1" />
+              </TimelineItem>
+            )}
 
             <TimelineItem>
-              <TimelineContent flex="1" />
+              {screenType != "mobile" && <TimelineContent flex="1" />}
               <TimelineConnector />
               <TimelineContent flex="1">
                 <CareerItem
