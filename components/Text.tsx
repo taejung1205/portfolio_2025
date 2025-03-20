@@ -42,7 +42,7 @@ export const CustomText = forwardRef<
   {
     fontFamily: FontFamily;
     whiteSpace?: "normal" | "nowrap" | "pre" | "pre-wrap" | "pre-line";
-    fontSize: number;
+    fontSize: number | string;
     fontWeight?: number;
     children: React.ReactNode;
   }
