@@ -18,10 +18,12 @@ export default function ProjectModal({
   isOpen,
   onOpenChange,
   selectedProject,
+  screenType,
 }: {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
   selectedProject: Project;
+  screenType: string;
 }) {
   const [page, setPage] = useState(1);
   useEffect(() => {
@@ -30,7 +32,7 @@ export default function ProjectModal({
 
   return (
     <Dialog.Root
-      size="cover"
+      size={screenType == "mobile" ? "full" : "cover"}
       placement="center"
       motionPreset="slide-in-bottom"
       open={isOpen}
@@ -47,6 +49,8 @@ export default function ProjectModal({
               backgroundColor: "#000F32",
               color: "white",
             }}
+            maxH={"90vh"}
+            overflowY="auto"
           >
             <Dialog.CloseTrigger asChild>
               <CloseButton size="sm" color={"grey"} />
@@ -54,7 +58,7 @@ export default function ProjectModal({
             {
               <div
                 style={{
-                  margin: "30px",
+                  margin: screenType == "mobile" ? "20px" : "30px",
                   display: "flex",
                   flexDirection: "column",
                   height: "100%",
@@ -64,7 +68,9 @@ export default function ProjectModal({
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <CustomText
                       fontFamily={FontFamily.Warhaven}
-                      fontSize={60}
+                      fontSize={
+                        screenType == "desktop" ? 60 : "clamp(20px, 7vw, 50px)"
+                      }
                       fontWeight={700}
                     >
                       {selectedProject.title}
@@ -76,7 +82,11 @@ export default function ProjectModal({
                           <ExternalLinkButton
                             link={item.link}
                             linkType={item.linkType}
-                            size={60}
+                            size={
+                              screenType == "desktop"
+                                ? 60
+                                : "clamp(20px, 7vw, 50px)"
+                            }
                           />
                         ))}
                     </div>
@@ -85,7 +95,9 @@ export default function ProjectModal({
                   <div style={{ height: "10px" }} />
                   <CustomText
                     fontFamily={FontFamily.Warhaven}
-                    fontSize={20}
+                    fontSize={
+                      screenType == "desktop" ? 20 : "clamp(10px, 2.5vw, 20px)"
+                    }
                     fontWeight={400}
                   >
                     {selectedProject.subtitle}
@@ -99,6 +111,7 @@ export default function ProjectModal({
                     justifyContent: "center",
                     alignItems: "center",
                     height: "calc(100% - 300px)",
+                    flexDirection: screenType == "mobile" ? "column" : "row",
                   }}
                 >
                   <div
@@ -113,10 +126,19 @@ export default function ProjectModal({
                   >
                     <img
                       src={selectedProject.images[page - 1]}
-                      style={{ maxHeight: "100%", maxWidth: "100%" }}
+                      style={{
+                        maxHeight: screenType == "mobile" ? "50vh" : "100%",
+                        maxWidth: "100%",
+                      }}
                     />
                     <div style={{ height: "100px" }} />
-                    <div style={{ position: "absolute", bottom: "20px" }}>
+                    <div
+                      style={{
+                        position:
+                          screenType == "mobile" ? "relative" : "absolute",
+                        bottom: "20px",
+                      }}
+                    >
                       <PaginationRoot
                         count={selectedProject.images.length}
                         pageSize={1}

@@ -89,6 +89,7 @@ export default function Home() {
         isOpen={isOpen}
         onOpenChange={(open: boolean) => setIsOpen(open)}
         selectedProject={selectedProject}
+        screenType={screenType}
       />
 
       {/* 각 섹션에 ref 추가 */}
@@ -96,10 +97,10 @@ export default function Home() {
       <div ref={introSectionRef} data-section="intro" />
       <IntroSection onDeviconClick={onDeviconClick} screenType={screenType} />
       <div ref={aboutSectionRef} data-section="about" />
-      <AboutSection screenType={screenType}/>
+      <AboutSection screenType={screenType} />
 
       <div ref={careerSectionRef} data-section="career" />
-      <CareerSection onProjectClick={onProjectClick} screenType={screenType}/>
+      <CareerSection onProjectClick={onProjectClick} screenType={screenType} />
 
       <div ref={projectsSectionRef} data-section="projects" />
       <ProjectsSection

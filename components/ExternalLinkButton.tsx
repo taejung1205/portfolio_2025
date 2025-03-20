@@ -9,7 +9,7 @@ export function ExternalLinkButton({
 }: {
   link: string;
   linkType: ExternalLinkType;
-  size: number;
+  size: number | string;
 }) {
   let icon: React.ReactNode;
   switch (linkType) {
