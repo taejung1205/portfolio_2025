@@ -62,7 +62,7 @@ export default function OutroSection() {
           </a>
           <div style={{ height: "20px" }} />
           <a
-            href="https://github.com/taejung1205"
+            href="https://linkedin.com/in/1205taejungkim"
             target="_blank"
             rel="noopener noreferrer"
             style={{
