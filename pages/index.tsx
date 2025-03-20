@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import ProjectModal from "@components/Modals/ProjectModal";
 import { getProjectByTitle, Project, ProjectType } from "@components/Project";
 import { DevStack } from "@components/DevStack";
+import { useBreakpointValue } from "@chakra-ui/react";
 
 export default function Home() {
   const introSectionRef = useRef<HTMLDivElement>(null);
@@ -46,6 +47,12 @@ export default function Home() {
   const [selectedStacks, setSelectedStacks] = useState<DevStack[]>([]);
   const [selectedProjectType, setSelectedProjectType] = useState<ProjectType>();
 
+  const screenType = useBreakpointValue({
+    base: "mobile",
+    md: "tablet",
+    lg: "desktop",
+  });
+
   function onProjectClick(project: Project) {
     setSelectedProject(project);
     setIsOpen(true);
@@ -76,7 +83,7 @@ export default function Home() {
         />
       </Head>
 
-      <Header scrollToSection={scrollToSection} />
+      {screenType != "mobile" && <Header scrollToSection={scrollToSection} />}
 
       <ProjectModal
         isOpen={isOpen}
@@ -85,9 +92,9 @@ export default function Home() {
       />
 
       {/* 각 섹션에 ref 추가 */}
-      <div ref={introSectionRef} data-section="intro" />
-      <IntroSection onDeviconClick={onDeviconClick} />
 
+      <div ref={introSectionRef} data-section="intro" />
+      <IntroSection onDeviconClick={onDeviconClick} screenType={screenType} />
       <div ref={aboutSectionRef} data-section="about" />
       <AboutSection />
 
