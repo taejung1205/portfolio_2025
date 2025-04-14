@@ -54,7 +54,7 @@ export default function OutroSection({ screenType }) {
             <div style={{ width: "30px" }} />
             <CustomText
               fontFamily={FontFamily.Warhaven}
-              fontSize={30}
+              fontSize={screenType == "mobile" ? 20 : 30}
               fontWeight={700}
             >
               Visit my GitHub
@@ -78,7 +78,7 @@ export default function OutroSection({ screenType }) {
             <div style={{ width: "30px" }} />
             <CustomText
               fontFamily={FontFamily.Warhaven}
-              fontSize={30}
+              fontSize={screenType == "mobile" ? 20 : 30}
               fontWeight={700}
             >
               Visit my LinkedIn
@@ -107,7 +107,7 @@ export default function OutroSection({ screenType }) {
             <div style={{ width: "30px" }} />
             <CustomText
               fontFamily={FontFamily.Warhaven}
-              fontSize={30}
+              fontSize={screenType == "mobile" ? 20 : 30}
               fontWeight={700}
             >
               immcoc1@naver.com

@@ -46,6 +46,7 @@ export default function Home() {
   });
   const [selectedStacks, setSelectedStacks] = useState<DevStack[]>([]);
   const [selectedProjectType, setSelectedProjectType] = useState<ProjectType>();
+  const [isMounted, setIsMounted] = useState(false);
 
   const screenType = useBreakpointValue({
     base: "mobile",
@@ -69,6 +70,7 @@ export default function Home() {
     if (project) {
       setSelectedProject(project);
     }
+    setIsMounted(true);
   }, []);
 
   return (
@@ -83,7 +85,9 @@ export default function Home() {
         />
       </Head>
 
-      {screenType != "mobile" && <Header scrollToSection={scrollToSection} />}
+      {isMounted && screenType != "mobile" && (
+        <Header scrollToSection={scrollToSection} />
+      )}
 
       <ProjectModal
         isOpen={isOpen}
