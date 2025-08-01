@@ -148,6 +148,7 @@ export default function ProjectModal({
                           console.log(e.page);
                         }}
                         variant="subtle"
+                        siblingCount={selectedProject.images.length <= 4 ? 4 : 1}
                       >
                         <HStack>
                           <PaginationPrevTrigger color={"grey"} />
@@ -173,7 +174,7 @@ export default function ProjectModal({
                       {selectedProject.about}
                     </CustomText>
 
-                    <div style={{ height: "40px" }} />
+                    <div style={{ height: "30px" }} />
 
                     <CustomText fontFamily={FontFamily.Warhaven} fontSize={24}>
                       작업 기간
@@ -187,7 +188,7 @@ export default function ProjectModal({
                       {selectedProject.period}
                     </CustomText>
 
-                    <div style={{ height: "40px" }} />
+                    <div style={{ height: "30px" }} />
                     <CustomText fontFamily={FontFamily.Warhaven} fontSize={24}>
                       기술 스택
                     </CustomText>
@@ -199,7 +200,7 @@ export default function ProjectModal({
                     >
                       {selectedProject.devStacks.join(", ")}
                     </CustomText>
-                    <div style={{ height: "40px" }} />
+                    <div style={{ height: "30px" }} />
                     {selectedProject.implementation.length > 0 && (
                       <>
                         {" "}
